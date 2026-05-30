@@ -38,16 +38,16 @@ export default function Home() {
 	];
 
 	return (
-		<div className="flex min-h-screen flex-col items-center p-6 sm:p-12 md:p-24 bg-background text-foreground font-mono">
+		<div className="flex min-h-screen flex-col items-center p-6 sm:p-12 lg:p-24 bg-background text-foreground font-mono">
 			<motion.header
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5 }}
-				className="w-full max-w-4xl flex justify-between items-center mb-12 border-b border-border-green pb-6"
+				className="w-full max-w-4xl flex justify-between items-center gap-4 mb-12 border-b border-border-green pb-6"
 			>
 				<div className="flex items-center gap-3">
 					<Terminal className="text-brand w-8 h-8" />
-					<div>
+					<div className="flex-1" >
 						<h1 className="text-2xl font-bold font-sans text-brand tracking-tight">
 							Morteza Rahmani
 						</h1>
@@ -61,12 +61,12 @@ export default function Home() {
 				</div>
 			</motion.header>
 
-			<main className="w-full max-w-4xl flex flex-col md:flex-row gap-8">
+			<main className="w-full max-w-4xl flex flex-col lg:flex-row gap-8">
 				<motion.aside
 					initial={{ opacity: 0, x: -20 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ duration: 0.5, delay: 0.2 }}
-					className="flex flex-col gap-2 md:w-64 shrink-0"
+					className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-col gap-2 lg:w-64 shrink-0"
 				>
 					{tabs.map((tab) => (
 						<button
@@ -100,8 +100,8 @@ export default function Home() {
 							<h2 className="text-xl text-brand font-bold flex items-center gap-2">
 								<span className="text-brand-muted">$</span> cat about.md
 							</h2>
-							<div className="clearfix">
-								<div className="relative float-left mr-6 mb-3 w-40 h-40 rounded-lg overflow-hidden border border-border-green/50 bg-background/50 shrink-0">
+						<div className="lg:clearfix">
+							<div className="relative lg:float-left mx-auto mb-6 lg:mx-0 lg:mr-6 lg:mb-3 w-40 h-40 rounded-lg overflow-hidden border border-border-green/50 bg-background/50 shrink-0">
 									<Image
 										src="/images/profile.jpg"
 										alt="Profile photo"
@@ -117,7 +117,7 @@ export default function Home() {
 										<span className="text-brand font-semibold">
 											Front-End Developer
 										</span>{" "}
-										intensely focused on{" "}
+										currently focused on{" "}
 										<span className="text-brand font-semibold">
 											Creative Programming
 										</span>
@@ -130,7 +130,7 @@ export default function Home() {
 										feels alive.
 									</p>
 									<div className="pt-4 border-t border-border space-y-3">
-										<p className="text-xs text-brand-muted">// technologies</p>
+										<p className="text-xs text-brand-muted">{"// technologies"}</p>
 										<div className="flex flex-wrap gap-2">
 											{[
 												"Next.js", "React.js", "TypeScript", "JavaScript",
@@ -159,7 +159,7 @@ export default function Home() {
 							</h2>
 							<div className="space-y-8">
 								<div className="relative pl-6 border-l border-border hover:border-brand transition-colors">
-									<span className="absolute -left-1.25 w-2 h-2 rounded-full bg-brand"></span>
+									<span className="absolute -left-1.25 w-2.25 h-2.25 rounded-full bg-brand" />
 									<h3 className="font-semibold text-lg">
 										Front-End Developer to Front-End Lead @{" "}
 										<a
@@ -172,7 +172,7 @@ export default function Home() {
 										</a>
 									</h3>
 									<p className="text-sm text-muted-foreground mb-3">
-										Several years
+										4+ years
 									</p>
 									<p className="text-foreground/80 text-sm">
 										Joined as a front-end developer and grew into a lead role
@@ -181,13 +181,13 @@ export default function Home() {
 										long-term product thinking.
 									</p>
 								</div>
-								<div className="relative pl-6 border-l border-border hover:border-brand transition-colors">
-									<span className="absolute -left-1.25 w-2 h-2 rounded-full bg-brand-muted"></span>
+								<div className="relative pl-6 border-l border-border hover:border-brand-muted transition-colors">
+									<span className="absolute -left-1.25 w-2.25 h-2.25 rounded-full bg-brand-muted" />
 									<h3 className="font-semibold text-lg">
 										Freelance Full-Stack Developer (Laravel)
 									</h3>
 									<p className="text-sm text-muted-foreground mb-3">
-										A few years
+										About 2 years
 									</p>
 									<p className="text-foreground/80 text-sm">
 										Started right after internship as a junior freelancer. Built
