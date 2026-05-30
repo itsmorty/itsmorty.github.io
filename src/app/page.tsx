@@ -124,14 +124,10 @@ export default function Home() {
 										.
 									</p>
 									<p>
-										I enjoy bridging the gap between solid architectural
-										patterns and engaging, fluid user interfaces. My background
-										started with an internship where I learned JavaScript,
-										WordPress, PHP, and Laravel in sequence. After that, I spent
-										a few years as a freelancer delivering several WordPress and
-										Laravel projects as a junior full-stack developer. Over the
-										following years, I focused on front-end engineering in a
-										company and later became a lead on the same product.
+										My path went from a short internship through full-stack
+										freelancing to front-end engineering and eventually leading
+										a product team. I care about code that works precisely and
+										feels alive.
 									</p>
 									<div className="pt-4 border-t border-border space-y-3">
 										<p className="text-xs text-brand-muted">// technologies</p>
@@ -179,10 +175,10 @@ export default function Home() {
 										Several years
 									</p>
 									<p className="text-foreground/80 text-sm">
-										Joined the company as a front-end developer and grew into a lead
-										role on the same product. Vellso is the project I am most proud
-										of because it gave me deep hands-on experience in architecture,
-										performance, collaboration, and long-term product thinking.
+										Joined as a front-end developer and grew into a lead role
+										on the same product. The work gave me deep hands-on
+										experience in architecture, performance, collaboration, and
+										long-term product thinking.
 									</p>
 								</div>
 								<div className="relative pl-6 border-l border-border hover:border-brand transition-colors">
@@ -222,26 +218,21 @@ export default function Home() {
 												Vellso
 											</a>
 										</h3>
-										<span className="text-xs px-2 py-1 bg-brand/10 text-brand rounded border border-brand/20">
-											Proudest Work
-										</span>
 									</div>
 									<p className="text-sm text-foreground/70 mb-4">
-										The long-running product where I evolved from front-end
-										developer to lead. It shaped my engineering standards and gave
-										me practical lessons in maintainable front-end architecture,
-										performance at scale, and team ownership.
+										The product I invested the most years into. It shaped my
+										engineering standards through real-world lessons in
+										architecture, performance at scale, and team ownership.
 									</p>
 									<div className="flex flex-wrap gap-2">
-										<span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
-											Next.js
-										</span>
-										<span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
-											Zustand
-										</span>
-										<span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
-											Clean Architecture
-										</span>
+										{[
+											"Next.js", "React.js", "Vite", "Redux", "GLSL",
+											"Motion", "GSAP", "GitHub Actions", "Capacitor",
+										].map((tech) => (
+											<span key={tech} className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
+												{tech}
+											</span>
+										))}
 									</div>
 								</div>
 
