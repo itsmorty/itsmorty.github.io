@@ -11,6 +11,7 @@ import {
 	Server,
 	Cpu,
 } from "lucide-react";
+import { IconBrandGithub, IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
 import { useTerminalStore } from "../store/useTerminalStore";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -43,7 +44,7 @@ export default function Home() {
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5 }}
-				className="w-full max-w-4xl flex justify-between items-center gap-4 mb-12 border-b border-border-green pb-6"
+				className="w-full max-w-4xl flex lg:flex-row not-lg:flex-col justify-between lg:items-center gap-4 mb-12 border-b border-border-green pb-6"
 			>
 				<div className="flex items-center gap-3">
 					<Terminal className="text-brand w-8 h-8" />
@@ -56,8 +57,21 @@ export default function Home() {
 						</p>
 					</div>
 				</div>
-				<div className="text-xs text-brand-muted hidden sm:block">
-					Commands executed: {commandsRun}
+				<div className="flex lg:flex-col items-end justify-between gap-4">
+					<div className="text-xs text-brand-muted">
+						Commands executed: {commandsRun}
+					</div>
+					<div className="flex items-center gap-3">
+						<a href="https://github.com/itsmorty" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-brand transition-colors">
+							<IconBrandGithub className="w-5 h-5" />
+						</a>
+						<a href="https://linkedin.com/in/morteza-rhmn" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-brand transition-colors">
+							<IconBrandLinkedin className="w-5 h-5" />
+						</a>
+						<a href="https://x.com/morteza_rhmn" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-brand transition-colors">
+							<IconBrandX className="w-5 h-5" />
+						</a>
+					</div>
 				</div>
 			</motion.header>
 

@@ -10,6 +10,8 @@
 		"format": "biome format --write ."
 	},
 	"dependencies": {
+		"@tabler/icons-react": "^3.44.0",
+		"@vercel/analytics": "^2.0.1",
 		"clsx": "^2.1.1",
 		"lucide-react": "^1.17.0",
 		"motion": "^12.40.0",
