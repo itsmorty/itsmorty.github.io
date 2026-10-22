@@ -2,7 +2,7 @@
 
 Personal portfolio of Morteza Rahmani — a terminal-style single page built with Next.js, TypeScript, Tailwind CSS, and Motion.
 
-Live at **https://itsmorty.github.io/portfolio/**
+Live at **https://itsmorty.github.io/**
 
 ## Development
 
@@ -24,13 +24,13 @@ pnpm build
 To preview the production output exactly as GitHub Pages serves it, build with the same environment the workflow uses and serve `out/`:
 
 ```bash
-GITHUB_PAGES=true GITHUB_REPOSITORY=itsmorty/portfolio pnpm build
+GITHUB_PAGES=true GITHUB_REPOSITORY=itsmorty/itsmorty.github.io pnpm build
 npx serve out
 ```
 
-Then open [http://localhost:3000/portfolio/](http://localhost:3000/portfolio/) — the `/portfolio` prefix comes from the project-site base path.
+Then open [http://localhost:3000/](http://localhost:3000/).
 
-`GITHUB_PAGES=true` makes the build mount everything under `/<repo>/`, because project sites live at `https://<user>.github.io/<repo>/`. The repository name is read from `GITHUB_REPOSITORY`, so renaming the repo needs no config change. Repos named `<user>.github.io` are detected and served from the domain root.
+`GITHUB_PAGES=true` turns on the GitHub Pages base path. Because this repo is named `<user>.github.io`, it is served from the domain root and the base path stays empty. A project repo (anything not ending in `.github.io`) is instead mounted under `/<repo>/`, read from `GITHUB_REPOSITORY` — so renaming the repo needs no config change either way.
 
 ## Deployment
 
