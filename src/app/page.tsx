@@ -12,6 +12,7 @@ import {
 	Cpu,
 } from "lucide-react";
 import { IconBrandGithub, IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
+import profilePhoto from "../../public/images/profile.jpg";
 import { useTerminalStore } from "../store/useTerminalStore";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -117,7 +118,7 @@ export default function Home() {
 						<div className="lg:clearfix">
 							<div className="relative lg:float-left mx-auto mb-6 lg:mx-0 lg:mr-6 lg:mb-3 w-40 h-40 rounded-lg overflow-hidden border border-border-green/50 bg-background/50 shrink-0">
 									<Image
-										src="/images/profile.jpg"
+										src={profilePhoto}
 										alt="Profile photo"
 										fill
 										sizes="160px"

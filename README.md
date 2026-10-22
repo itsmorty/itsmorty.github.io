@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Personal portfolio of Morteza Rahmani — a terminal-style single page built with Next.js, TypeScript, Tailwind CSS, and Motion.
 
-First, run the development server:
+Live at **https://itsmorty.github.io/portfolio/**
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site is a fully static export (`output: "export"` in `next.config.ts`), so `next build` writes plain HTML/CSS/JS to `out/`:
 
-## Learn More
+```bash
+pnpm build
+```
 
-To learn more about Next.js, take a look at the following resources:
+To preview the production output exactly as GitHub Pages serves it, build with the same environment the workflow uses and serve `out/`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+GITHUB_PAGES=true GITHUB_REPOSITORY=itsmorty/portfolio pnpm build
+npx serve out
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Then open [http://localhost:3000/portfolio/](http://localhost:3000/portfolio/) — the `/portfolio` prefix comes from the project-site base path.
 
-## Deploy on Vercel
+`GITHUB_PAGES=true` makes the build mount everything under `/<repo>/`, because project sites live at `https://<user>.github.io/<repo>/`. The repository name is read from `GITHUB_REPOSITORY`, so renaming the repo needs no config change. Repos named `<user>.github.io` are detected and served from the domain root.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pushes to `main` deploy automatically through `.github/workflows/deploy.yml`:
+
+1. Install dependencies with pnpm, run `pnpm lint`, then `pnpm build` (static export into `out/`).
+2. Upload `out/` as a Pages artifact and publish it with the official Pages actions.
+
+The first run needs Pages enabled for the repository with **Source: GitHub Actions** (Settings → Pages). After that, every push to `main` publishes a new version.
+
+Notes:
+
+- `next/image` runs with `unoptimized: true` because the default optimizer needs a Node.js server.
+- `public/.nojekyll` is copied into `out/` so GitHub Pages does not run Jekyll over the `_next` directory.
+- The version string in the header (`v<run>-<sha>`) comes from `GITHUB_RUN_NUMBER` and `GITHUB_SHA` at build time, and falls back to a timestamp locally.
